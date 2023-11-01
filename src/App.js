@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { createGlobalStyle } from "styled-components";
+import TodoTemplates from "./components/TodoTemplates";
+import TodoHead from "./components/TodoHead";
+import TodoList from "./components/TodoList";
+
+// styled-components에서 글로벌 스타일을 추가하고 싶을 때 사용.
+const GlobalStyle = createGlobalStyle`
+  body {
+    background: #e9ecef;
+  }
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyle />
+      <TodoTemplates>
+        <TodoHead />
+        <TodoList />
+      </TodoTemplates>
+    </>
   );
 }
 
